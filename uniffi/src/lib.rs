@@ -2,8 +2,8 @@ uniffi::setup_scaffolding!();
 
 mod platform;
 
-use map::WgpuApp;
 use std::sync::RwLock;
+use wgpu_app::WgpuApp;
 
 #[derive(uniffi::Object)]
 pub struct WgpuAppApi {

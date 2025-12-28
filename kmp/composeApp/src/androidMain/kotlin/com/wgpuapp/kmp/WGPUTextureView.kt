@@ -8,9 +8,8 @@ import android.util.AttributeSet
 import android.view.Surface
 import android.view.TextureView
 import timber.log.Timber
-import uniffi.ffi_run.WgpuAppApi
-import uniffi.ffi_run.toPointer
-
+import uniffi.uniffi.WgpuAppApi
+import uniffi.uniffi.toPointer
 
 @SuppressLint("ClickableViewAccessibility")
 class WGPUTextureView : TextureView {

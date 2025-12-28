@@ -16,7 +16,7 @@ plugins {
 
 cargo {
     // The Cargo package is located in a `rust` subdirectory.
-    packageDirectory = layout.projectDirectory.dir("../../ffi-run")
+    packageDirectory = layout.projectDirectory.dir("../../uniffi")
 }
 
 uniffi {

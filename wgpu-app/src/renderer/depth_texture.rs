@@ -1,5 +1,5 @@
 use wgpu::{Device, TextureView};
-use crate::msaa_texture::MultisampledTexture;
+use crate::renderer::msaa_texture::MultisampledTexture;
 
 pub struct DepthTexture {
     pub view: TextureView,

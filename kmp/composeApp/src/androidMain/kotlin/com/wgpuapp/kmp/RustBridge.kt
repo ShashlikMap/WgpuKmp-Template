@@ -5,7 +5,7 @@ import android.view.Surface
 class RustBridge {
 
     init {
-        System.loadLibrary("ffi_run")
+        System.loadLibrary("uniffi")
     }
 
     external fun createWgpuAppApi(surface: Surface, isEmulator: Boolean, tilesDb: String, dpiScale: Float): Long

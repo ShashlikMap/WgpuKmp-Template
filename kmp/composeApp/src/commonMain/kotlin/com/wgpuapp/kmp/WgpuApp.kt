@@ -5,7 +5,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import uniffi.ffi_run.WgpuAppApi
+import uniffi.uniffi.WgpuAppApi
 
 @Composable
 expect fun WgpuApp()

@@ -1,8 +1,8 @@
 use app_surface::{AppSurface, IOSViewObj};
 use wgpu::{Device, Queue, SurfaceConfiguration, SurfaceError, SurfaceTexture};
-use wgpu_canvas::wgpu_canvas::WgpuCanvas;
+use wgpu_app::wgpu_canvas::WgpuCanvas;
 use crate::WgpuAppApi;
-use map::WgpuApp;
+use wgpu_app::WgpuApp;
 use std::sync::RwLock;
 use std::ffi::c_void;
 use objc::runtime::Object;

@@ -1,11 +1,9 @@
-extern crate core;
-
-use crate::depth_texture::DepthTexture;
-use crate::fps::FpsCounter;
-use crate::msaa_texture::MultisampledTexture;
+use crate::renderer::depth_texture::DepthTexture;
+use crate::renderer::fps::FpsCounter;
+use crate::renderer::msaa_texture::MultisampledTexture;
 use std::iter;
 use wgpu::{CompareFunction, DepthStencilState, SurfaceError, TextureFormat};
-use wgpu_canvas::wgpu_canvas::WgpuCanvas;
+use crate::wgpu_canvas::WgpuCanvas;
 use wgpu_text::glyph_brush::ab_glyph::FontRef;
 use wgpu_text::glyph_brush::{OwnedSection, OwnedText};
 use wgpu_text::{BrushBuilder, TextBrush};
@@ -13,12 +11,6 @@ use wgpu_text::{BrushBuilder, TextBrush};
 mod depth_texture;
 mod fps;
 mod msaa_texture;
-
-pub trait Renderer {
-    fn resize(&mut self, width: u32, height: u32);
-    fn update(&mut self);
-    fn render(&mut self) -> Result<(), SurfaceError>;
-}
 
 pub struct WgpuRenderer {
     depth_texture: DepthTexture,
@@ -29,9 +21,7 @@ pub struct WgpuRenderer {
 }
 
 impl WgpuRenderer {
-    pub async fn new(
-        canvas: Box<dyn WgpuCanvas>,
-    ) -> anyhow::Result<WgpuRenderer> {
+    pub async fn new(canvas: Box<dyn WgpuCanvas>) -> anyhow::Result<WgpuRenderer> {
         let device = canvas.device();
         let config = canvas.config();
 
@@ -78,15 +68,14 @@ impl WgpuRenderer {
             self.msaa_texture =
                 MultisampledTexture::new(device, config.width, config.height, config.format);
 
-            self.text_brush.resize_view(width as f32, height as f32, queue);
+            self.text_brush
+                .resize_view(width as f32, height as f32, queue);
         }
     }
 
-    fn update(&mut self) {
+    pub fn update(&mut self) {
         let queue = self.canvas.queue();
         let device = self.canvas.device();
-        let config = self.canvas.config();
-
         let current_fps = format!("{:.1}", self.fps_counter.update());
 
         let mut text_section = OwnedSection::default().with_screen_position((130f32, 50f32));
@@ -99,7 +88,7 @@ impl WgpuRenderer {
             .unwrap();
     }
 
-    fn render(&mut self) -> Result<(), SurfaceError> {
+    pub fn render(&mut self) -> Result<(), SurfaceError> {
         self.canvas.on_pre_render();
 
         let output = self.canvas.get_current_texture()?;
@@ -152,19 +141,5 @@ impl WgpuRenderer {
         self.canvas.on_post_render();
 
         Ok(())
-    }
-}
-
-impl Renderer for WgpuRenderer {
-    fn resize(&mut self, width: u32, height: u32) {
-        self.resize(width, height);
-    }
-
-    fn update(&mut self) {
-        self.update();
-    }
-
-    fn render(&mut self) -> Result<(), SurfaceError> {
-        self.render()
     }
 }

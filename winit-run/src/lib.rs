@@ -1,13 +1,13 @@
 use app_surface::{AppSurface, SurfaceFrame};
-use i_slint_backend_winit::{CustomApplicationHandler, EventResult};
-use map::WgpuApp;
 use std::sync::Arc;
 use wgpu::{Device, Queue, SurfaceConfiguration, SurfaceError, SurfaceTexture};
-use wgpu_canvas::wgpu_canvas::WgpuCanvas;
+use wgpu_app::wgpu_canvas::WgpuCanvas;
+use winit::application::ApplicationHandler;
 use winit::event::{KeyEvent, WindowEvent};
 use winit::event_loop::ActiveEventLoop;
 use winit::keyboard::{KeyCode, PhysicalKey};
 use winit::window::{Window, WindowId};
+use wgpu_app::WgpuApp;
 
 pub struct App {
     pub wgpu_app: Option<WgpuApp>,
@@ -51,8 +51,8 @@ impl WgpuCanvas for WinitAppSurface {
     }
 }
 
-impl CustomApplicationHandler for App {
-    fn resumed(&mut self, event_loop: &ActiveEventLoop) -> EventResult {
+impl ApplicationHandler for App {
+    fn resumed(&mut self, event_loop: &ActiveEventLoop) {
         #[allow(unused_mut)]
         let mut window_attributes = Window::default_attributes();
 
@@ -65,19 +65,11 @@ impl CustomApplicationHandler for App {
 
         let wgpu_state = pollster::block_on(WgpuApp::new(Box::new(winit_surface))).unwrap();
         self.wgpu_app = Some(wgpu_state);
-        EventResult::Propagate
     }
 
-    fn window_event(
-        &mut self,
-        event_loop: &ActiveEventLoop,
-        _window_id: WindowId,
-        winit_window: Option<&Window>,
-        _slint_window: Option<&slint::Window>,
-        event: &WindowEvent,
-    ) -> EventResult {
+    fn window_event(&mut self, event_loop: &ActiveEventLoop, _: WindowId, event: WindowEvent) {
         if self.wgpu_app.is_none() {
-            return EventResult::Propagate;
+            return;
         }
 
         let map = self.wgpu_app.as_mut().unwrap();
@@ -88,11 +80,7 @@ impl CustomApplicationHandler for App {
                 event_loop.exit();
             }
             WindowEvent::Resized(size) => {
-                // FIXME Don't resize wgpu-app if the window present(this is Slint window with incorrect size)
-                // Need to divide handlers?!
-                if winit_window.is_none() {
-                    map.resize(size.width, size.height);
-                }
+                map.resize(size.width, size.height);
             }
             WindowEvent::RedrawRequested => {
                 map.update_and_render();
@@ -107,7 +95,7 @@ impl CustomApplicationHandler for App {
                 ..
             } => {
                 let is_pressed = key_state.is_pressed();
-                if *code == KeyCode::Escape && is_pressed {
+                if code == KeyCode::Escape && is_pressed {
                     event_loop.exit();
                 } else {
                     match code {
@@ -119,6 +107,5 @@ impl CustomApplicationHandler for App {
 
             _ => {}
         }
-        EventResult::Propagate
     }
 }

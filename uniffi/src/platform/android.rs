@@ -4,14 +4,12 @@ use jni::objects::JClass;
 use jni::sys::{jboolean, jlong, jobject};
 use jni::JNIEnv;
 use jni_fn::jni_fn;
-use map::WgpuApp;
+use wgpu_app::WgpuApp;
 use std::sync::{Arc, RwLock};
 use wgpu::{Device, Queue, SurfaceConfiguration, SurfaceError, SurfaceTexture};
-use wgpu_canvas::wgpu_canvas::WgpuCanvas;
-use jni::objects::JString;
+use wgpu_app::wgpu_canvas::WgpuCanvas;
 use app_surface::SurfaceFrame;
 use pollster::FutureExt;
-use jni::sys::jfloat;
 
 //FIXME https://github.com/gobley/gobley/issues/20
 #[uniffi::export]
