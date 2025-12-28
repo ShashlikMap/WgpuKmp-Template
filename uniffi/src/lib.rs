@@ -7,7 +7,6 @@ use wgpu_app::WgpuApp;
 
 #[derive(uniffi::Object)]
 pub struct WgpuAppApi {
-    // TODO ?Can't use generic for FFI WgpuApp?
     wgpu_app: RwLock<WgpuApp>,
 }
 
@@ -26,5 +25,8 @@ impl WgpuAppApi {
         wgpu_app.resize(width, height);
     }
 
-    fn set_cam_follow_mode(&self, enabled: bool) {}
+    fn change_color(&self) {
+        let mut wgpu_app = self.wgpu_app.write().unwrap();
+        wgpu_app.change_color()
+    }
 }

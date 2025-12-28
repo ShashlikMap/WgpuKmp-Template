@@ -23,6 +23,10 @@ impl WgpuApp {
         self.renderer.resize(width, height);
     }
 
+    pub fn change_color(&mut self) {
+        self.renderer.just_counter += 1;
+    }
+
     pub fn update_and_render(&mut self) {
         self.renderer.update();
         self.renderer.render().unwrap();

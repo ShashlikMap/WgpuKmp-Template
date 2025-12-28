@@ -52,7 +52,7 @@ impl WgpuCanvas for AndroidSurfaceAppSurface {
 }
 
 #[unsafe(no_mangle)]
-#[jni_fn("com.wgpuapp.kmp.RustBridge")] // TODO How to pass as a build param?
+#[jni_fn("com.wgpuapp.kmp.WGPUTextureView")] // TODO How to pass as a build param?
 pub fn createWgpuAppApi(
     env: *mut JNIEnv<'_>,
     _: JClass,

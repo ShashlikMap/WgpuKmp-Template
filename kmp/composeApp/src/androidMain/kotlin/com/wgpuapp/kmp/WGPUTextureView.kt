@@ -14,7 +14,9 @@ import uniffi.uniffi.toPointer
 @SuppressLint("ClickableViewAccessibility")
 class WGPUTextureView : TextureView {
 
-    private var rustBridge = RustBridge()
+    init {
+        System.loadLibrary("uniffi")
+    }
 
     constructor(context: Context) : super(context) {
     }
@@ -28,6 +30,8 @@ class WGPUTextureView : TextureView {
         defStyle
     )
 
+    external fun createWgpuAppApi(surface: Surface, isEmulator: Boolean): Long
+
     init {
         Timber.d("WGPUTextureView created")
 
@@ -38,13 +42,12 @@ class WGPUTextureView : TextureView {
                 height: Int
             ) {
                 val surface = Surface(st)
-                val ptr = rustBridge.createWgpuAppApi(
+                val ptr = createWgpuAppApi(
                     surface,
                     Build.FINGERPRINT.contains("generic") ||
                             Build.FINGERPRINT.contains("sdk_gphone"),
-                    context.filesDir.absolutePath + "/tiles.db",
-                    context.resources.displayMetrics.density / 2.0f
                 )
+
                 Timber.d("surfaceCreated = $ptr, surface = $surface")
 
                 WgpuAppApiHolder.wgpuAppApi = WgpuAppApi(ptr.toPointer()).apply {

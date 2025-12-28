@@ -1,9 +1,9 @@
 use crate::renderer::depth_texture::DepthTexture;
 use crate::renderer::fps::FpsCounter;
 use crate::renderer::msaa_texture::MultisampledTexture;
+use crate::wgpu_canvas::WgpuCanvas;
 use std::iter;
 use wgpu::{CompareFunction, DepthStencilState, SurfaceError, TextureFormat};
-use crate::wgpu_canvas::WgpuCanvas;
 use wgpu_text::glyph_brush::ab_glyph::FontRef;
 use wgpu_text::glyph_brush::{OwnedSection, OwnedText};
 use wgpu_text::{BrushBuilder, TextBrush};
@@ -16,6 +16,7 @@ pub struct WgpuRenderer {
     depth_texture: DepthTexture,
     msaa_texture: MultisampledTexture,
     canvas: Box<dyn WgpuCanvas>,
+    pub just_counter: i32,
     fps_counter: FpsCounter<120>,
     text_brush: TextBrush<FontRef<'static>>,
 }
@@ -52,6 +53,7 @@ impl WgpuRenderer {
             depth_texture,
             msaa_texture,
             canvas,
+            just_counter: 0,
             fps_counter,
             text_brush,
         })
@@ -82,6 +84,9 @@ impl WgpuRenderer {
         text_section
             .text
             .push(OwnedText::new(current_fps.as_str()).with_scale(60.0));
+        text_section.text.push(
+            OwnedText::new(format!("\nCounter: {:?}", self.just_counter).as_str()).with_scale(70.0),
+        );
 
         self.text_brush
             .queue(&device, &queue, [&text_section])
