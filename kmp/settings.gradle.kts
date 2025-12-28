@@ -1,11 +1,5 @@
-import java.io.FileInputStream
-import java.util.Properties
-
 rootProject.name = "kmp"
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
-
-val properties = Properties()
-properties.load(FileInputStream(file("local.properties")))
 
 pluginManagement {
     repositories {
@@ -34,7 +28,4 @@ dependencyResolutionManagement {
     }
 }
 
-include(":shared")
-
 include(":composeApp")
-project(":composeApp").projectDir = File(rootDir, "demo/composeApp")
