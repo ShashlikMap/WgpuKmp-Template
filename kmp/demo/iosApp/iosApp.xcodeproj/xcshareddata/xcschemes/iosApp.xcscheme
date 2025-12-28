@@ -16,7 +16,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "0A3B1EFAC840F8E6ACA636D0"
-               BuildableName = "ShashlikDemo.app"
+               BuildableName = "WgpuApp.app"
                BlueprintName = "iosApp"
                ReferencedContainer = "container:iosApp.xcodeproj">
             </BuildableReference>
@@ -48,7 +48,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "0A3B1EFAC840F8E6ACA636D0"
-            BuildableName = "ShashlikDemo.app"
+            BuildableName = "WgpuApp.app"
             BlueprintName = "iosApp"
             ReferencedContainer = "container:iosApp.xcodeproj">
          </BuildableReference>
@@ -65,7 +65,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "0A3B1EFAC840F8E6ACA636D0"
-            BuildableName = "ShashlikDemo.app"
+            BuildableName = "WgpuApp.app"
             BlueprintName = "iosApp"
             ReferencedContainer = "container:iosApp.xcodeproj">
          </BuildableReference>
