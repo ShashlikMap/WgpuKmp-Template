@@ -7,29 +7,29 @@
 	objects = {
 
 /* Begin PBXFileReference section */
-		88A6360ED81857037AF34270 /* WgpuApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WgpuApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F711AC6A5BEEDE5B4B350EE0 /* WgpuApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WgpuApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		ED066DCD2EFB89A500127473 /* Exceptions for "iosApp" folder in "iosApp" target */ = {
+		8975CDCB5717D7C59CF2017E /* Exceptions for "iosApp" folder in "iosApp" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Info.plist,
 			);
-			target = 0A3B1EFAC840F8E6ACA636D0 /* iosApp */;
+			target = EE1A547460BFF3DD7C787415 /* iosApp */;
 		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		6B9E6D45F482151AB33A2E10 /* iosApp */ = {
+		3511F39BA3A5FF81A97B2225 /* iosApp */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				ED066DCD2EFB89A500127473 /* Exceptions for "iosApp" folder in "iosApp" target */,
+				8975CDCB5717D7C59CF2017E /* Exceptions for "iosApp" folder in "iosApp" target */,
 			);
 			path = iosApp;
 			sourceTree = "<group>";
 		};
-		71504F51A7899AB774BC7C76 /* Configuration */ = {
+		A0C4754B4AABB5EA9323FBAE /* Configuration */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = Configuration;
 			sourceTree = "<group>";
@@ -37,7 +37,7 @@
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		B4CEC9ACEA58F2FA4DA67A93 /* Frameworks */ = {
+		E02D60C8E06DDEF25CA2C522 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -47,85 +47,85 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		130D26187D8D60E4AF4985FD /* Products */ = {
+		36DF9BF2701D6FEB06D3AF61 = {
 			isa = PBXGroup;
 			children = (
-				88A6360ED81857037AF34270 /* WgpuApp.app */,
+				A0C4754B4AABB5EA9323FBAE /* Configuration */,
+				3511F39BA3A5FF81A97B2225 /* iosApp */,
+				E0FCF189967615061D2E1B66 /* Products */,
 			);
-			name = Products;
 			sourceTree = "<group>";
 		};
-		2A70BF596BB4938537A9D976 = {
+		E0FCF189967615061D2E1B66 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				71504F51A7899AB774BC7C76 /* Configuration */,
-				6B9E6D45F482151AB33A2E10 /* iosApp */,
-				130D26187D8D60E4AF4985FD /* Products */,
+				F711AC6A5BEEDE5B4B350EE0 /* WgpuApp.app */,
 			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		0A3B1EFAC840F8E6ACA636D0 /* iosApp */ = {
+		EE1A547460BFF3DD7C787415 /* iosApp */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 88EB3C40297EFEB41C7BC010 /* Build configuration list for PBXNativeTarget "iosApp" */;
+			buildConfigurationList = 7E95A1E27D4BF1FC5853ABB0 /* Build configuration list for PBXNativeTarget "iosApp" */;
 			buildPhases = (
-				4B5AFF78943814803E874348 /* Compile Kotlin Framework */,
-				18529E40D12D0F7EF9F7EA5C /* Sources */,
-				B4CEC9ACEA58F2FA4DA67A93 /* Frameworks */,
-				960DC2DC5B05A85E84AE2288 /* Resources */,
+				88911F1904A8FAEB618B3517 /* Compile Kotlin Framework */,
+				C64CB9D4482F58D040AA6394 /* Sources */,
+				E02D60C8E06DDEF25CA2C522 /* Frameworks */,
+				12025FB82B59DD951321F732 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				6B9E6D45F482151AB33A2E10 /* iosApp */,
+				3511F39BA3A5FF81A97B2225 /* iosApp */,
 			);
 			name = iosApp;
 			packageProductDependencies = (
 			);
 			productName = iosApp;
-			productReference = 88A6360ED81857037AF34270 /* WgpuApp.app */;
+			productReference = F711AC6A5BEEDE5B4B350EE0 /* WgpuApp.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		4EAB99579F7030D55923B074 /* Project object */ = {
+		FE74BA44CEF578CC1ADE8BDE /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1620;
 				LastUpgradeCheck = 1620;
 				TargetAttributes = {
-					0A3B1EFAC840F8E6ACA636D0 = {
+					EE1A547460BFF3DD7C787415 = {
 						CreatedOnToolsVersion = 16.2;
 					};
 				};
 			};
-			buildConfigurationList = C3C25FA70C11DB38ACDE2905 /* Build configuration list for PBXProject "iosApp" */;
+			buildConfigurationList = 83B9F09AD70B7856C6A3A2CC /* Build configuration list for PBXProject "iosApp" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
 			);
-			mainGroup = 2A70BF596BB4938537A9D976;
+			mainGroup = 36DF9BF2701D6FEB06D3AF61;
 			minimizedProjectReferenceProxies = 1;
 			preferredProjectObjectVersion = 77;
-			productRefGroup = 130D26187D8D60E4AF4985FD /* Products */;
+			productRefGroup = E0FCF189967615061D2E1B66 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				0A3B1EFAC840F8E6ACA636D0 /* iosApp */,
+				EE1A547460BFF3DD7C787415 /* iosApp */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		960DC2DC5B05A85E84AE2288 /* Resources */ = {
+		12025FB82B59DD951321F732 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -135,7 +135,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		4B5AFF78943814803E874348 /* Compile Kotlin Framework */ = {
+		88911F1904A8FAEB618B3517 /* Compile Kotlin Framework */ = {
 			isa = PBXShellScriptBuildPhase;
 			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
@@ -157,7 +157,7 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		18529E40D12D0F7EF9F7EA5C /* Sources */ = {
+		C64CB9D4482F58D040AA6394 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -167,38 +167,9 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		38AF835369B87E0EFE7C71B3 /* Debug */ = {
+		0710276F90660A3D96A350E4 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = arm64;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"iosApp/Preview Content\"";
-				DEVELOPMENT_TEAM = "${TEAM_ID}";
-				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = iosApp/Info.plist;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.wgpuapp.demo;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		7FBA785B1530C5183BD45A2B /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReferenceAnchor = 71504F51A7899AB774BC7C76 /* Configuration */;
+			baseConfigurationReferenceAnchor = A0C4754B4AABB5EA9323FBAE /* Configuration */;
 			baseConfigurationReferenceRelativePath = Config.xcconfig;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -261,9 +232,9 @@
 			};
 			name = Debug;
 		};
-		87188E6B02939F17FBC4F989 /* Release */ = {
+		A2A5C68F6753A7A73687D481 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReferenceAnchor = 71504F51A7899AB774BC7C76 /* Configuration */;
+			baseConfigurationReferenceAnchor = A0C4754B4AABB5EA9323FBAE /* Configuration */;
 			baseConfigurationReferenceRelativePath = Config.xcconfig;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -319,7 +290,7 @@
 			};
 			name = Release;
 		};
-		BE7AB0178D6D4D5B4A26C34D /* Release */ = {
+		9F12A6F90DCFE91DF501C3D9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = arm64;
@@ -341,7 +312,34 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.wgpuapp.demo;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		9988EED2D6161B83775B0AE8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = arm64;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"iosApp/Preview Content\"";
+				DEVELOPMENT_TEAM = "${TEAM_ID}";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = iosApp/Info.plist;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -351,25 +349,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		88EB3C40297EFEB41C7BC010 /* Build configuration list for PBXNativeTarget "iosApp" */ = {
+		83B9F09AD70B7856C6A3A2CC /* Build configuration list for PBXProject "iosApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				38AF835369B87E0EFE7C71B3 /* Debug */,
-				BE7AB0178D6D4D5B4A26C34D /* Release */,
+				0710276F90660A3D96A350E4 /* Debug */,
+				A2A5C68F6753A7A73687D481 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C3C25FA70C11DB38ACDE2905 /* Build configuration list for PBXProject "iosApp" */ = {
+		7E95A1E27D4BF1FC5853ABB0 /* Build configuration list for PBXNativeTarget "iosApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				7FBA785B1530C5183BD45A2B /* Debug */,
-				87188E6B02939F17FBC4F989 /* Release */,
+				9F12A6F90DCFE91DF501C3D9 /* Debug */,
+				9988EED2D6161B83775B0AE8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 4EAB99579F7030D55923B074 /* Project object */;
+	rootObject = FE74BA44CEF578CC1ADE8BDE /* Project object */;
 }
