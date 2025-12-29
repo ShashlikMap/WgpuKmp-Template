@@ -1,7 +1,7 @@
 use app_surface::{AppSurface, SurfaceFrame};
 use std::sync::Arc;
 use wgpu::{Device, Queue, SurfaceConfiguration, SurfaceError, SurfaceTexture};
-use wgpu_app::wgpu_canvas::WgpuCanvas;
+use wgpu_app::wgpu_surface::WgpuSurface;
 use winit::application::ApplicationHandler;
 use winit::event::{KeyEvent, WindowEvent};
 use winit::event_loop::ActiveEventLoop;
@@ -21,7 +21,7 @@ impl App {
 pub struct WinitAppSurface {
     pub app_surface: AppSurface,
 }
-impl WgpuCanvas for WinitAppSurface {
+impl WgpuSurface for WinitAppSurface {
     fn queue(&self) -> &Queue {
         &self.app_surface.queue
     }
@@ -72,7 +72,7 @@ impl ApplicationHandler for App {
             return;
         }
 
-        let map = self.wgpu_app.as_mut().unwrap();
+        let app = self.wgpu_app.as_mut().unwrap();
 
         match event {
             WindowEvent::CloseRequested => {
@@ -80,10 +80,10 @@ impl ApplicationHandler for App {
                 event_loop.exit();
             }
             WindowEvent::Resized(size) => {
-                map.resize(size.width, size.height);
+                app.resize(size.width, size.height);
             }
             WindowEvent::RedrawRequested => {
-                map.update_and_render();
+                app.update_and_render();
             }
             WindowEvent::KeyboardInput {
                 event:
@@ -99,7 +99,9 @@ impl ApplicationHandler for App {
                     event_loop.exit();
                 } else {
                     match code {
-                        KeyCode::KeyN => if is_pressed {},
+                        KeyCode::KeyI => if is_pressed {
+                            app.counter_increment()
+                        },
                         _ => {}
                     }
                 }

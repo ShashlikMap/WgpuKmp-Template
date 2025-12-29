@@ -1,6 +1,8 @@
 use wgpu::{SurfaceError, SurfaceTexture};
 
-pub trait WgpuCanvas: Send + Sync {
+/// Provides a communication between renderer and a native surface.
+/// See ffi or winit-run modules for details
+pub trait WgpuSurface: Send + Sync {
     fn queue(&self) -> &wgpu::Queue;
     fn config(&self) -> &wgpu::SurfaceConfiguration;
     fn device(&self) -> &wgpu::Device;

@@ -1,7 +1,7 @@
 use crate::renderer::depth_texture::DepthTexture;
 use crate::renderer::fps::FpsCounter;
 use crate::renderer::msaa_texture::MultisampledTexture;
-use crate::wgpu_canvas::WgpuCanvas;
+use crate::wgpu_surface::WgpuSurface;
 use std::iter;
 use wgpu::{CompareFunction, DepthStencilState, SurfaceError, TextureFormat};
 use wgpu_text::glyph_brush::ab_glyph::FontRef;
@@ -15,14 +15,14 @@ mod msaa_texture;
 pub struct WgpuRenderer {
     depth_texture: DepthTexture,
     msaa_texture: MultisampledTexture,
-    canvas: Box<dyn WgpuCanvas>,
+    canvas: Box<dyn WgpuSurface>,
     pub just_counter: i32,
     fps_counter: FpsCounter<120>,
     text_brush: TextBrush<FontRef<'static>>,
 }
 
 impl WgpuRenderer {
-    pub async fn new(canvas: Box<dyn WgpuCanvas>) -> anyhow::Result<WgpuRenderer> {
+    pub async fn new(canvas: Box<dyn WgpuSurface>) -> anyhow::Result<WgpuRenderer> {
         let device = canvas.device();
         let config = canvas.config();
 

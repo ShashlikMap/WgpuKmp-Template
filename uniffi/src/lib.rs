@@ -25,8 +25,8 @@ impl WgpuAppApi {
         wgpu_app.resize(width, height);
     }
 
-    fn change_color(&self) {
+    fn counter_increment(&self) {
         let mut wgpu_app = self.wgpu_app.write().unwrap();
-        wgpu_app.change_color()
+        wgpu_app.counter_increment()
     }
 }

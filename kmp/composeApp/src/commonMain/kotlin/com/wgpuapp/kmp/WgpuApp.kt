@@ -12,9 +12,16 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import uniffi.uniffi.WgpuAppApi
 
+/**
+ * Actual implementation is a native "surface" wrapped to [Composable] method
+ * @see [WGPUTextureView] and [MetalView]
+ */
 @Composable
 expect fun WgpuApp()
 
+/**
+ * [Composable] entry point for mobile application
+ */
 @Composable
 fun App() {
     MaterialTheme {
@@ -27,7 +34,7 @@ fun App() {
                 WgpuApp()
             }
             Button(onClick = {
-                WgpuAppApiHolder.wgpuAppApi?.changeColor()
+                WgpuAppApiHolder.wgpuAppApi?.counterIncrement()
             }, modifier = Modifier.align(Alignment.Center)) {
                 Text("Increment")
             }
@@ -35,6 +42,10 @@ fun App() {
     }
 }
 
+/**
+ * Global handler to get access to [WgpuAppApi]
+ * TODO Can it be done better?
+ */
 object WgpuAppApiHolder {
     var wgpuAppApi: WgpuAppApi? = null
 }

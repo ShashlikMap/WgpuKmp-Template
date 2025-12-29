@@ -1,6 +1,6 @@
 use app_surface::{AppSurface, IOSViewObj};
 use wgpu::{Device, Queue, SurfaceConfiguration, SurfaceError, SurfaceTexture};
-use wgpu_app::wgpu_canvas::WgpuCanvas;
+use wgpu_app::wgpu_surface::WgpuSurface;
 use crate::WgpuAppApi;
 use wgpu_app::WgpuApp;
 use std::sync::RwLock;
@@ -11,7 +11,7 @@ use app_surface::SurfaceFrame;
 extern "C" fn ios_callback_stub(_arg: i32) {}
 
 #[uniffi::export]
-pub fn create_wgpu_app_api_for_ios(view: u64, metal_layer: u64, maximum_frames: i32, _tiles_db: String) -> WgpuAppApi {
+pub fn create_wgpu_app_api_for_ios(view: u64, metal_layer: u64, maximum_frames: i32) -> WgpuAppApi {
 	let ios_view_obj = IOSViewObj {
 		view: view as *mut Object,
 		metal_layer: metal_layer as *mut c_void,
@@ -20,7 +20,6 @@ pub fn create_wgpu_app_api_for_ios(view: u64, metal_layer: u64, maximum_frames: 
 	};
 	let app_surface = AppSurface::new(ios_view_obj);
 	let wrapper = IOSPlatformAppSurface { app_surface };
-	// TODO DPI from iOS
 	let wgpu_app = pollster::block_on(WgpuApp::new(Box::new(wrapper))).unwrap();
 	WgpuAppApi { wgpu_app: RwLock::new(wgpu_app) }
 }
@@ -33,7 +32,7 @@ pub struct IOSPlatformAppSurface {
 unsafe impl Send for IOSPlatformAppSurface {}
 unsafe impl Sync for IOSPlatformAppSurface {}
 
-impl WgpuCanvas for IOSPlatformAppSurface {
+impl WgpuSurface for IOSPlatformAppSurface {
 	fn queue(&self) -> &Queue { &self.app_surface.queue }
 	fn config(&self) -> &SurfaceConfiguration { &self.app_surface.config }
 	fn device(&self) -> &Device { &self.app_surface.device }

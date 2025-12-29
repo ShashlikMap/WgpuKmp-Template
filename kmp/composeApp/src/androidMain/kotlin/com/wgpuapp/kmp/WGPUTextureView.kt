@@ -11,6 +11,9 @@ import timber.log.Timber
 import uniffi.uniffi.WgpuAppApi
 import uniffi.uniffi.toPointer
 
+/**
+ * [TextureView] that creates [WgpuAppApi]
+ */
 @SuppressLint("ClickableViewAccessibility")
 class WGPUTextureView : TextureView {
 
@@ -30,6 +33,9 @@ class WGPUTextureView : TextureView {
         defStyle
     )
 
+    /**
+     * @see uniffi/src/platform/android.rs
+     */
     external fun createWgpuAppApi(surface: Surface, isEmulator: Boolean): Long
 
     init {

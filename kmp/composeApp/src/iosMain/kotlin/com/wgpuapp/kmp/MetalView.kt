@@ -20,6 +20,10 @@ import platform.UIKit.UIViewMeta
 import platform.darwin.NSObject
 import uniffi.uniffi.WgpuAppApi
 
+/**
+ * Kotlin/Native implementation of UIView with CAMetalLayer to communicate with [WgpuAppApi]
+ * This is much more convenient than Swift implementation
+ */
 @OptIn(ExperimentalForeignApi::class, BetaInteropApi::class)
 internal class MetalView : UIView(CGRectMake(0.0, 0.0, 0.0, 0.0)) {
     private var displayLink: CADisplayLink? = null
@@ -62,6 +66,7 @@ internal class MetalView : UIView(CGRectMake(0.0, 0.0, 0.0, 0.0)) {
         val opaquePtrThis = this.objcPtr().toLong()
         val opaquePtrLayer = this.layer.objcPtr().toLong()
 
+        // @see uniffi/src/platform/ios.rs
         val api = uniffi.uniffi.createWgpuAppApiForIos(
             opaquePtrThis.toULong(), opaquePtrLayer.toULong(), 90, ""
         )

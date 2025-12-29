@@ -1,19 +1,24 @@
 use crate::WgpuAppApi;
 use app_surface::AppSurface;
+use app_surface::SurfaceFrame;
+use jni::JNIEnv;
 use jni::objects::JClass;
 use jni::sys::{jboolean, jlong, jobject};
-use jni::JNIEnv;
 use jni_fn::jni_fn;
-use wgpu_app::WgpuApp;
+use pollster::FutureExt;
 use std::sync::{Arc, RwLock};
 use wgpu::{Device, Queue, SurfaceConfiguration, SurfaceError, SurfaceTexture};
-use wgpu_app::wgpu_canvas::WgpuCanvas;
-use app_surface::SurfaceFrame;
-use pollster::FutureExt;
+use wgpu_app::WgpuApp;
+use wgpu_app::wgpu_surface::WgpuSurface;
 
 //FIXME https://github.com/gobley/gobley/issues/20
 #[uniffi::export]
-pub fn create_wgpu_app_api_for_ios(view: u64, metal_layer: u64, maximum_frames: i32, _tiles_db: String) -> WgpuAppApi {
+pub fn create_wgpu_app_api_for_ios(
+    view: u64,
+    metal_layer: u64,
+    maximum_frames: i32,
+    _tiles_db: String,
+) -> WgpuAppApi {
     panic!("Android not supported")
 }
 
@@ -21,7 +26,7 @@ struct AndroidSurfaceAppSurface {
     app_surface: AppSurface,
 }
 
-impl WgpuCanvas for AndroidSurfaceAppSurface {
+impl WgpuSurface for AndroidSurfaceAppSurface {
     fn queue(&self) -> &Queue {
         &self.app_surface.queue
     }
@@ -51,8 +56,10 @@ impl WgpuCanvas for AndroidSurfaceAppSurface {
     }
 }
 
+// It must be the same package as in kmp implementation
+// TODO How to pass as a build param?
 #[unsafe(no_mangle)]
-#[jni_fn("com.wgpuapp.kmp.WGPUTextureView")] // TODO How to pass as a build param?
+#[jni_fn("com.wgpuapp.kmp.WGPUTextureView")]
 pub fn createWgpuAppApi(
     env: *mut JNIEnv<'_>,
     _: JClass,
@@ -71,8 +78,7 @@ pub fn createWgpuAppApi(
 
 fn init_logger() {
     android_logger::init_once(
-        android_logger::Config::default()
-            .with_max_level(log::LevelFilter::Debug)
+        android_logger::Config::default().with_max_level(log::LevelFilter::Debug),
     );
     log_panics::init();
 }

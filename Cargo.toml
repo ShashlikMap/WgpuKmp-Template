@@ -8,7 +8,7 @@ anyhow = "1.0"
 env_logger = "0.11.8"
 log = "0.4.28"
 pollster = "0.4.0"
-winit = { version = "0.30", features = ["android-native-activity"] }
+winit = { version = "0.30"}
 wgpu = "28.0.0"
 glam = "0.30"
 futures-lite = "2"

@@ -1,16 +1,16 @@
 mod renderer;
-pub mod wgpu_canvas;
+pub mod wgpu_surface;
 
 extern crate core;
 
 use renderer::WgpuRenderer;
-use wgpu_canvas::WgpuCanvas;
+use wgpu_surface::WgpuSurface;
 pub struct WgpuApp {
     renderer: Box<WgpuRenderer>,
 }
 
 impl WgpuApp {
-    pub async fn new(canvas: Box<dyn WgpuCanvas>) -> anyhow::Result<WgpuApp> {
+    pub async fn new(canvas: Box<dyn WgpuSurface>) -> anyhow::Result<WgpuApp> {
         let renderer = WgpuRenderer::new(canvas).await?;
 
         let wgpu_app = WgpuApp {
@@ -23,7 +23,7 @@ impl WgpuApp {
         self.renderer.resize(width, height);
     }
 
-    pub fn change_color(&mut self) {
+    pub fn counter_increment(&mut self) {
         self.renderer.just_counter += 1;
     }
 
