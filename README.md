@@ -1,12 +1,12 @@
 # WgpuKmp-Template
-WGPU Rust and Kotlin Multiplatform application template with shared Compose UI.
+WGPU Rust and Kotlin Multiplatform application template with a shared Compose UI.
 
 A motivation is to provide easy-to-setup mobile app project template with Rust WGPU backend as GPU graphics layer and Compose Multiplatform UI as a frontend part.
 
 It's been achieved by using a combination of the following libraries/approaches:
-- Kotlin/Compose Multiplatfom for shared mobile UI.
+- Kotlin/Compose Multiplatfom for a shared mobile Compose UI.
 - [uniffi-rs](https://github.com/mozilla/uniffi-rs) and [gobley](https://github.com/gobley/gobley) to connect Rust and KMP modules and provide a simple way to implememt/support API between languages/platforms.
-- Partly borrowed implementation from [wgpu-in-app](https://github.com/jinleili/wgpu-in-app/) for a native GPU sufraces
+- Partly borrowed implementation from [wgpu-in-app](https://github.com/jinleili/wgpu-in-app/) for a native GPU sufraces.
 
 You can refer to [shashlik-map](https://github.com/ShashlikMap/shashlik-map) to have a look at more advanced example.
 
