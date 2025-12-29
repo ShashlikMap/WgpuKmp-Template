@@ -28,7 +28,7 @@ P.S. Press "I" to increment counter.
 ### Android
 - Open `kmp` folder as a project in Android Studio(wait for indexing/importing completed, may take a while)
 - XCode might be needed to be installed
-- Make sure `composeApp` is selected as RunConfiguration
+- Make sure `composeApp` is selected
 - Run `composeApp` as usual
 
 ### iOS
