@@ -5,6 +5,7 @@ A motivation is to provide easy-to-setup mobile app project template with Rust W
 
 It's been achieved by using a combination of the following libraries/approaches:
 - Kotlin/Compose Multiplatfom for a shared mobile Compose UI.
+- [WGPU](https://github.com/gfx-rs/wgpu) for a cross-platform, Rust low-level graphics API.
 - [uniffi-rs](https://github.com/mozilla/uniffi-rs) and [gobley](https://github.com/gobley/gobley) to connect Rust and KMP modules and provide a simple way to implememt/support API between languages/platforms.
 - Partly borrowed implementation from [wgpu-in-app](https://github.com/jinleili/wgpu-in-app/) for a native GPU sufraces.
 
