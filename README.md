@@ -28,11 +28,14 @@ P.S. Press "I" to increment counter.
 
 ### Android
 - Open `kmp` folder as a project in Android Studio(wait for indexing/importing completed, may take a while)
-- XCode might be needed to be installed
+- XCode might be needed to be installed(gradle will be compiling iOS as well)
 - Make sure `composeApp` is selected
 - Run `composeApp` as usual
 
+_Note: initial importing may take up to 5-6 minutes, be patient_:)
+
 ### iOS
+- The Android project from `kmp` folder has to be opened in AS at least once(gradle will create some extra files required to build/run iOS app)
 - Open `kmp/iosApp` folder as a project in XCode
 - Run as usual on iOS Simulator or real device
 
