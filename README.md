@@ -42,3 +42,6 @@ _Note: initial importing may take up to 5-6 minutes, be patient_:)
 ## Roadmap
 - Simplify an internal configuration even more
 - Add a Compose Desktop
+
+## Extra
+If you're looking for a pure Android WebGPU template(using androidx.webgpu) you can find it [here](https://github.com/ShashlikMap/webgpu-kt-template)
